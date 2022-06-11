@@ -1,11 +1,10 @@
 import type { LoaderFunction, ActionFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import { createTask, getTasks } from "~/models/task.server";
-import { headers } from "~/utils";
+import { json } from "~/utils";
 
 export const loader: LoaderFunction = async () => {
   const tasks = await getTasks();
-  return json(tasks, { headers });
+  return json(tasks);
 };
 
 export const action: ActionFunction = async ({ request }) => {
@@ -20,13 +19,13 @@ export const action: ActionFunction = async ({ request }) => {
     ) {
       return json(
         { formError: `Form not submitted correctly.` },
-        { status: 400, headers }
+        { status: 400 }
       );
     }
 
     const task = await createTask(title, description);
-    return json(task, { headers });
+    return json(task);
   }
 
-  return json(null, { headers });
+  return json(null);
 };
