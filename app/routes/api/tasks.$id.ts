@@ -6,7 +6,7 @@ import { headers } from "~/utils";
 export const loader: LoaderFunction = async ({ params }) => {
   if (!params.id) throw new Error("taks id is required");
   const task = await getTask(params.id);
-  return json(task);
+  return json(task, { headers });
 };
 
 export const action: ActionFunction = async ({ params, request }) => {
@@ -36,5 +36,5 @@ export const action: ActionFunction = async ({ params, request }) => {
     return json({ id: params.id }, { headers });
   }
 
-  return null;
+  return json(null, { headers });
 };

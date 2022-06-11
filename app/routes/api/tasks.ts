@@ -5,7 +5,7 @@ import { headers } from "~/utils";
 
 export const loader: LoaderFunction = async () => {
   const tasks = await getTasks();
-  return json(tasks);
+  return json(tasks, { headers });
 };
 
 export const action: ActionFunction = async ({ request }) => {
@@ -28,5 +28,5 @@ export const action: ActionFunction = async ({ request }) => {
     return json(task, { headers });
   }
 
-  return null;
+  return json(null, { headers });
 };

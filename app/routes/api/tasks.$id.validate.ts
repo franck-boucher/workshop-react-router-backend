@@ -11,5 +11,5 @@ export const action: ActionFunction = async ({ params, request }) => {
     return json(task, { headers });
   }
 
-  return null;
+  return json(null, { headers });
 };
