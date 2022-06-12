@@ -16,9 +16,10 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  firstName String
-  lastName  String
-  active    Boolean @default(true)
+  firstName   String
+  lastName    String
+  active      Boolean @default(true)
+  canValidate Boolean @default(false)
 }
 
 model Task {

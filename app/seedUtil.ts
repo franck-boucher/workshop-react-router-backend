@@ -33,6 +33,7 @@ export async function seed(prisma = runningPrisma) {
     data: {
       firstName: "John",
       lastName: "Doe",
+      canValidate: true,
     },
   });
 
