@@ -4,7 +4,7 @@ import { getRandomInt, json } from "~/utils";
 
 const fakeRandomPause = () => {
   return new Promise((resolve) => {
-    setTimeout(resolve, getRandomInt(300, 1000));
+    setTimeout(resolve, getRandomInt(300, 1500));
   });
 };
 
